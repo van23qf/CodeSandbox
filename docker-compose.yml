@@ -1,0 +1,18 @@
+services:
+  codesandbox:
+    build: .
+    container_name: codesandbox
+    ports:
+      - "8000:8000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./logs:/app/logs
+      - ${HOST_CODE_DIR:-/tmp/codesandbox_code}:/app/tmp
+      - ./docker:/app/docker
+    env_file:
+      - .env
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - HOST_CODE_DIR=${HOST_CODE_DIR:-/tmp/codesandbox_code}
+    restart: unless-stopped
+

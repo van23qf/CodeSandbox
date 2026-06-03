@@ -1,0 +1,20 @@
+[project]
+name = "codesandbox"
+version = "0.1.0"
+description = "代码沙盒执行环境，支持多语言代码安全运行"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "docker>=7.0.0",
+    "pydantic>=2.0.0",
+    "pytest>=9.0.3",
+    "pydantic-settings>=2.14.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.28.0",
+]
