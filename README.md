@@ -193,6 +193,15 @@ uv run pytest tests/test_api.py::test_health
 
 # 跳过需要 Docker 的测试
 uv run pytest -k "not docker"
+
+# 快速测试
+curl -X POST \
+http://localhost:8001/api/v1/execute \
+-H "Content-Type: application/json" \
+-d '{
+  "language":"javascript",
+  "code":"console.log(1+2)"
+}'
 ```
 
 ## 开发

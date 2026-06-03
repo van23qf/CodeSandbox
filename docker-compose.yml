@@ -3,7 +3,7 @@ services:
     build: .
     container_name: codesandbox
     ports:
-      - "8000:8000"
+      - "${API_PORT:-8000}:8000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./logs:/app/logs
